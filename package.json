@@ -14,8 +14,20 @@
   "contributes": {
     "commands": [
       {
-        "command": "code-journal.helloWorld",
-        "title": "Hello World"
+        "command": "code-journal.addComment",
+        "title": "Add Comment"
+      },
+      {
+        "command": "code-journal.updateComment",
+        "title": "Update Comment"
+      },
+      {
+        "command": "code-journal.deleteComment",
+        "title": "Delete Comment"
+      },
+      {
+        "command": "code-journal.showComment",
+        "title": "Show Comment"
       }
     ]
   },
