@@ -1,5 +1,5 @@
 {
-  "name": "code-journal",
+  "name": "codejournal",
   "displayName": "Code Journal",
   "description": "For keeping personal notes or comments at the file or line level",
   "version": "0.0.1",
@@ -14,22 +14,54 @@
   "contributes": {
     "commands": [
       {
-        "command": "code-journal.addComment",
+        "command": "codejournal.addComment",
         "title": "Add Comment"
       },
       {
-        "command": "code-journal.updateComment",
+        "command": "codejournal.updateComment",
         "title": "Update Comment"
       },
       {
-        "command": "code-journal.deleteComment",
+        "command": "codejournal.deleteComment",
         "title": "Delete Comment"
       },
       {
-        "command": "code-journal.showComment",
+        "command": "codejournal.showComment",
         "title": "Show Comment"
       }
-    ]
+    ],
+    "submenus": [
+      {
+        "id": "codejournal.context",
+        "label": "Code Journal"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "submenu": "codejournal.context",
+          "group": "codejournalCustomGroup"
+        }
+      ],
+      "codejournal.context": [
+        {
+          "command": "codejournal.addComment",
+          "group": "1_firstGroup"
+        },
+        {
+          "command": "codejournal.updateComment",
+          "group": "1_firstGroup"
+        },
+        {
+          "command": "codejournal.deleteComment",
+          "group": "1_firstGroup"
+        },
+        {
+          "command": "codejournal.showComment",
+          "group": "1_firstGroup"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
