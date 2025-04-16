@@ -2,16 +2,17 @@ import * as vscode from 'vscode';
 import { StorageService } from "./../services/storageService";
 
 export async function showComment() {
-    const lineNumber = await vscode.window.showInputBox({
-        prompt: 'Enter the line number to view the comment'
-    });
-
+    const activeEditor = vscode.window.activeTextEditor;
+    if (!activeEditor) {
+        vscode.window.showErrorMessage('No active editor found.');
+        return;
+    }
+    const lineNumber =  activeEditor.selection.active.line + 1;
     if (lineNumber) {
         const storageService = new StorageService();
-        const activeEditor = vscode.window.activeTextEditor;
         if (activeEditor) {
             const filePath = activeEditor.document.uri.fsPath;
-            const comment = storageService.getComment(filePath, parseInt(lineNumber));
+            const comment = storageService.getComment(filePath, lineNumber);
             if (comment) {
                 vscode.window.showInformationMessage(`Comment on line ${lineNumber}: ${comment}`);
             } else {
