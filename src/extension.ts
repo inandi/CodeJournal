@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { addComment } from "./commands/addComment"
+import { addComment } from "./commands/addComment";
 import { updateComment } from "./commands/updateComment";
 import { deleteComment } from "./commands/deleteComment";
 import { showComment } from "./commands/showComment";
