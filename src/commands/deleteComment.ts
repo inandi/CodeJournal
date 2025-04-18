@@ -17,7 +17,7 @@ export async function deleteComment() {
     const lineNumber = activeEditor.selection.active.line + 1;
     const commentLine = comments.find(comment => comment.line === lineNumber);
     if (commentLine === undefined) {
-        vscode.window.showErrorMessage('Failed to find the selected comment.');
+        vscode.window.showWarningMessage(`No comment found on line ${lineNumber}.`);
         return;
     }
     storageService.deleteComment(filePath, lineNumber);
