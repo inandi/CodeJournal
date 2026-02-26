@@ -2,20 +2,34 @@
 .vscode-test/**
 src/**
 .gitignore
-.yarnrc
-vsc-extension-quickstart.md
-**/tsconfig.json
-**/eslint.config.mjs
+tsconfig.json
 **/*.map
 **/*.ts
-**/.vscode-test.*
+!out/**/*.js
 
-out
-*.ts
-*.js.map
-*.d.ts
-node_modules
-.vscode
-.eslintrc.json
-tsconfig.json
-README.md
+# Development and release files
+dev.md
+release.sh
+release.md
+release.md.sample
+version.md
+
+# Documentation (keep README.md)
+doc/**
+
+# Publishing secrets
+.publish-secrets
+.publish-secrets.sample
+
+# Package files
+*.vsix
+package-lock.json
+
+# Git files
+.git/**
+.gitignore
+.gitattributes
+
+# Node modules (should already be excluded, but explicit)
+node_modules/**
+
