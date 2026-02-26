@@ -20,7 +20,7 @@ Thumbs.db
 *.swp
 *.swo
 *~
-
+*.DS_Store
 # Logs
 *.log
 npm-debug.log*
