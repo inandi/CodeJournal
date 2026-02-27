@@ -8,4 +8,3 @@
 - **Status bar**: Optional "CodeJournal" entry in the status bar with a quick-pick menu for Add/Update/Delete/Show Comment and Highlight on/off; preference is persisted.
 - **Timestamps**: Optional `updatedAt` (UTC) on comments, shown in tooltips and notifications.
 ---
-
