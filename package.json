@@ -2,9 +2,20 @@
   "name": "codejournal",
   "displayName": "Code Journal",
   "description": "For keeping personal notes or comments at the file or line level",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "engines": {
-    "vscode": "^1.75.0"
+    "vscode": "^1.74.0"
+  },
+  "publisher": "iNandi",
+  "author": {
+    "name": "Gobinda Nandi",
+    "email": "gobinda.nandi.public@gmail.com",
+    "url": "https://inandi.github.io/portfolio/index.html"
+  },
+  "icon": "media/logo.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iNandi/codejournal"
   },
   "categories": [
     "Other"
