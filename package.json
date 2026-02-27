@@ -2,7 +2,7 @@
   "name": "codejournal",
   "displayName": "Code Journal",
   "description": "For keeping personal notes or comments at the file or line level",
-  "version": "0.0.1",
+  "version": "1.1.1",
   "engines": {
     "vscode": "^1.75.0"
   },
@@ -28,6 +28,38 @@
       {
         "command": "codejournal.showComment",
         "title": "Show Comment"
+      },
+      {
+        "command": "codejournal.toggleCommentHighlights",
+        "title": "Highlight Comments"
+      },
+      {
+        "command": "codejournal.highlightCommentsOn",
+        "title": "Highlight Comments [on]"
+      },
+      {
+        "command": "codejournal.highlightCommentsOff",
+        "title": "Highlight Comments [off]"
+      },
+      {
+        "command": "codejournal.showCommentAtLine",
+        "title": "Show Comment (Code Journal)"
+      },
+      {
+        "command": "codejournal.toggleStatusBar",
+        "title": "Show in status bar"
+      },
+      {
+        "command": "codejournal.statusBarOn",
+        "title": "✓ Show in status bar"
+      },
+      {
+        "command": "codejournal.statusBarOff",
+        "title": "Show in status bar"
+      },
+      {
+        "command": "codejournal.showCodeJournalMenu",
+        "title": "Code Journal Menu"
       }
     ],
     "submenus": [
@@ -46,19 +78,39 @@
       "codejournal.context": [
         {
           "command": "codejournal.addComment",
-          "group": "1_firstGroup"
+          "group": "1_comments"
         },
         {
           "command": "codejournal.updateComment",
-          "group": "1_firstGroup"
+          "group": "1_comments"
         },
         {
           "command": "codejournal.deleteComment",
-          "group": "1_firstGroup"
+          "group": "1_comments"
         },
         {
           "command": "codejournal.showComment",
-          "group": "1_firstGroup"
+          "group": "1_comments"
+        },
+        {
+          "command": "codejournal.highlightCommentsOn",
+          "group": "2_highlight",
+          "when": "codejournal.highlightsOn == true"
+        },
+        {
+          "command": "codejournal.highlightCommentsOff",
+          "group": "2_highlight",
+          "when": "codejournal.highlightsOn != true"
+        },
+        {
+          "command": "codejournal.statusBarOn",
+          "group": "3_statusbar",
+          "when": "codejournal.statusBarVisible == true"
+        },
+        {
+          "command": "codejournal.statusBarOff",
+          "group": "3_statusbar",
+          "when": "codejournal.statusBarVisible != true"
         }
       ]
     }

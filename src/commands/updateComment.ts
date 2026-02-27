@@ -1,7 +1,23 @@
+/**
+ * Update Comment command – edit the note on the current line.
+ *
+ * @author Gobinda Nandi <gobinda.nandi.public@gmail.com>
+ * @since 0.0.1 [25-04-2025]
+ * @version 1.1.1
+ * @copyright (c) 2025 Gobinda Nandi
+ */
+
 import * as vscode from 'vscode';
 import { StorageService } from './../services/storageService';
+import { notifyCommentChanged } from './toggleCommentHighlights';
 
-export async function updateComment() {
+/**
+ * Prompts with existing comment text and updates the note for the current line.
+ *
+ * @returns {Promise<void>}
+ * @version 1.1.1
+ */
+export async function updateComment(): Promise<void> {
     const storageService = new StorageService();
     const activeEditor = vscode.window.activeTextEditor;
     if (!activeEditor) {
@@ -27,6 +43,7 @@ export async function updateComment() {
             if (newComment) {
                 existingComment.text = newComment;
                 storageService.updateComment(filePath, existingComment.line, existingComment.text);
+                notifyCommentChanged();
                 vscode.window.showInformationMessage('Comment updated successfully!');
             }
         } else {

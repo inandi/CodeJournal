@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>Code Journal</h1>
+  <h1>Code Journal [Beta]</h1>
   <p><strong>Personal notes at file and line level</strong></p>
 </div>
 
@@ -13,9 +13,10 @@ Code Journal is a VS Code extension that stores lightweight, personal notes atta
 
 - **Stay in context**: Notes are tied to the exact line—no hunting through a separate doc
 - **Survives edits**: When you insert or delete lines, comment line numbers update automatically
+- **Timestamps**: Each note stores a UTC date/time when added or updated; shown in tooltips and notifications
 - **Private & local**: Everything is stored in your workspace; no cloud or account
 - **Shareable**: Commit `.vscode/comments.json` to git to share notes with your team
-- **Quick access**: Add, update, delete, or show comments from the editor context menu
+- **Quick access**: Add, update, delete, or show comments from the editor context menu or the status bar
 
 ## Getting Started
 
@@ -58,13 +59,29 @@ Code Journal is a VS Code extension that stores lightweight, personal notes atta
 
 - Put the cursor on any line
 - Right‑click → **Code Journal → Show Comment**
-- If a note exists for that line, it appears in a VS Code notification
+- If a note exists for that line, it appears in a VS Code notification (with UTC timestamp when available)
 
-### Automatic Line Tracking
+### Highlight Comments (gutter markers + CodeJournal: View Comment)
 
-- Comments are stored as **(file path, line number)** pairs
-- When you **insert or delete lines** in a file, Code Journal adjusts stored line numbers so comments stay with the right code
-- If you **delete a line** that had a comment, that comment is removed
+- Right‑click → **Code Journal → Highlight Comments [off]** to turn on (menu then shows **Highlight Comments [on]**)
+- A **yellow marker** appears in the left gutter for every line that has a comment (temporary, like the debugger UI)
+- A **"CodeJournal: View Comment"** link appears above each line with a comment—**click it** to see the note; **hover** to see a formatted tooltip with the comment text and **Updated** timestamp below
+- When you **add** a comment with highlights on, the marker and link appear immediately; when you **delete** a comment, they disappear immediately
+- Right‑click → **Code Journal → Highlight Comments [on]** to turn off; gutter markers and View Comment lenses disappear
+
+### Show in status bar
+
+- Right‑click → **Code Journal → Show in status bar** (or **✓ Show in status bar** when already on) to show **CodeJournal** in the status bar
+- **Click** the status bar item to open a quick-pick menu with the same Code Journal actions (Add/Update/Delete/Show Comment, Highlight [on/off])—without the “Show in status bar” option
+- The choice is saved so it persists across sessions
+
+### Keeping Track When the File Changes
+
+- Comments are stored as **(file path, line number)** pairs plus an optional **`updatedAt`** UTC timestamp (set on add and update).
+- **Insert or delete lines**: Code Journal adjusts stored line numbers so comments stay with the right line. If you delete a line that had a comment, that comment is removed.
+- **Rename or move a file** (same workspace): Comments are moved to the new path automatically, so they stay with the file.
+- **Delete a file**: That file’s comments are removed from storage so the journal doesn’t keep stale entries.
+- Moving a block of code to another file does **not** move the comment—comments stay tied to the line number in the current file.
 
 ### Storage Location
 
@@ -72,15 +89,25 @@ Code Journal stores all comments in one file per workspace:
 
 - **Path**: `.vscode/comments.json` in your workspace root
 - The `.vscode` folder is created automatically if it doesn’t exist
-- **Format**: JSON object keyed by workspace-relative file path (e.g. `src/extension.ts`), each value an array of `{ "line": number, "text": string }`
+- **Format**: JSON object keyed by workspace-relative file path (e.g. `src/extension.ts`), each value an array of `{ "line": number, "text": string, "updatedAt"?: string }` (UTC ISO timestamp when added/updated)
 
 > **Note**: You can edit or back up `.vscode/comments.json` manually, or commit it to version control to share notes with others.
 
 ## Tips & Tricks
 
 - Use **Show Comment** on any line to quickly check if you left a note there
+- With **Highlight Comments** on, hover over **CodeJournal: View Comment** to see the note and its **Updated** timestamp in a formatted tooltip
 - **Command Palette** (`Cmd+Shift+P` / `Ctrl+Shift+P`): search for “Code Journal” to run any command without the context menu
+- Enable **Show in status bar** for one-click access to Code Journal actions from the status bar
 - Comments are per line; multiple comments in one file are stored as separate entries in the array for that file
+
+## Possible Future Improvements
+
+- **Keybinding**: Assign a shortcut (e.g. `Ctrl+Alt+C`) to Add Comment or Show Comment in Keyboard Shortcuts.
+- **Search / list**: A view or command to list or search all comments in the workspace and jump to the line.
+- **Export**: Export comments to Markdown or plain text for backup or sharing outside the workspace.
+- **Settings**: Options such as tooltip width, whether to show timestamp in notifications, or status bar alignment.
+- **Bulk actions**: “Delete all comments in this file” or “Export all in workspace”.
 
 ## Known Issues
 
