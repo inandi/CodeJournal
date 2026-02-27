@@ -1,0 +1,148 @@
+{
+  "name": "code-journal-inandi",
+  "displayName": "CodeJournal",
+  "description": "For keeping personal notes or comments at the file or line level",
+  "version": "1.1.7",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "publisher": "iNandi",
+  "author": {
+    "name": "Gobinda Nandi",
+    "email": "gobinda.nandi.public@gmail.com",
+    "url": "https://inandi.github.io/portfolio/index.html"
+  },
+  "icon": "media/logo.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iNandi/codejournal"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "codejournal.addComment",
+        "title": "Add Comment"
+      },
+      {
+        "command": "codejournal.updateComment",
+        "title": "Update Comment"
+      },
+      {
+        "command": "codejournal.deleteComment",
+        "title": "Delete Comment"
+      },
+      {
+        "command": "codejournal.showComment",
+        "title": "Show Comment"
+      },
+      {
+        "command": "codejournal.toggleCommentHighlights",
+        "title": "Highlight Comments"
+      },
+      {
+        "command": "codejournal.highlightCommentsOn",
+        "title": "Highlight Comments [on]"
+      },
+      {
+        "command": "codejournal.highlightCommentsOff",
+        "title": "Highlight Comments [off]"
+      },
+      {
+        "command": "codejournal.showCommentAtLine",
+        "title": "Show Comment (Code Journal)"
+      },
+      {
+        "command": "codejournal.toggleStatusBar",
+        "title": "Show in status bar"
+      },
+      {
+        "command": "codejournal.statusBarOn",
+        "title": "✓ Show in status bar"
+      },
+      {
+        "command": "codejournal.statusBarOff",
+        "title": "Show in status bar"
+      },
+      {
+        "command": "codejournal.showCodeJournalMenu",
+        "title": "Code Journal Menu"
+      }
+    ],
+    "submenus": [
+      {
+        "id": "codejournal.context",
+        "label": "Code Journal"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "submenu": "codejournal.context",
+          "group": "codejournalCustomGroup"
+        }
+      ],
+      "codejournal.context": [
+        {
+          "command": "codejournal.addComment",
+          "group": "1_comments"
+        },
+        {
+          "command": "codejournal.updateComment",
+          "group": "1_comments"
+        },
+        {
+          "command": "codejournal.deleteComment",
+          "group": "1_comments"
+        },
+        {
+          "command": "codejournal.showComment",
+          "group": "1_comments"
+        },
+        {
+          "command": "codejournal.highlightCommentsOn",
+          "group": "2_highlight",
+          "when": "codejournal.highlightsOn == true"
+        },
+        {
+          "command": "codejournal.highlightCommentsOff",
+          "group": "2_highlight",
+          "when": "codejournal.highlightsOn != true"
+        },
+        {
+          "command": "codejournal.statusBarOn",
+          "group": "3_statusbar",
+          "when": "codejournal.statusBarVisible == true"
+        },
+        {
+          "command": "codejournal.statusBarOff",
+          "group": "3_statusbar",
+          "when": "codejournal.statusBarVisible != true"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@typescript-eslint/eslint-plugin": "^8.25.0",
+    "@typescript-eslint/parser": "^8.25.0",
+    "eslint": "^9.21.0",
+    "typescript": "^5.7.3",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1"
+  }
+}
