@@ -1,4 +1,4 @@
-# Release v1.1.2 - 2026-02-27
+# Release v1.1.3 - 2026-02-27
 
 ## New Features
 
