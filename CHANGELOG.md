@@ -1,3 +1,24 @@
+# Release v1.1.6 - 2026-02-27
+
+## New Features
+- NA
+
+## Improvements
+- NA
+
+## Bug Fixes
+- NA
+
+## Deprecated Features
+- NA
+
+## Known Issues
+- NA
+
+## Acknowledgments
+- NA
+---
+
 # Release v1.1.5 - 2026-02-27
 
 ## New Features
