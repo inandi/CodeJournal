@@ -1,3 +1,10 @@
+# Release v2.1.3 - 2026-04-07
+
+## Bug Fixes
+- Minor enhancements
+
+---
+
 # Release v2.1.2 - 2026-04-07
 
 ## Improvements

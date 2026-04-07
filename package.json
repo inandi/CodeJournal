@@ -2,7 +2,7 @@
   "name": "code-journal-inandi",
   "displayName": "Code's Journal",
   "description": "For keeping personal notes or comments at the file or line level",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "preview": true,
   "engines": {
     "vscode": "^1.74.0"
