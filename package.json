@@ -1,8 +1,9 @@
 {
   "name": "code-journal-inandi",
-  "displayName": "CodeJournal",
+  "displayName": "Code Journal",
   "description": "For keeping personal notes or comments at the file or line level",
-  "version": "1.1.7",
+  "version": "2.1.1",
+  "preview": true,
   "engines": {
     "vscode": "^1.74.0"
   },
