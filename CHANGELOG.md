@@ -1,3 +1,10 @@
+# Release v2.1.2 - 2026-04-07
+
+## Improvements
+- Updated the extension display name branding in metadata from "Code Journal" to "Code's Journal".
+
+---
+
 # Release v2.1.1 - 2026-04-07
 
 ## New Features
